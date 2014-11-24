@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+    attr_accessor :remember_token
+
     #force email to be all lower case so we can 
     #ensure uniqueness w/in the database
     before_save {self.email = email.downcase}
@@ -21,4 +23,29 @@ class User < ActiveRecord::Base
 
     end
 
+    def User.new_token
+      SecureRandom.urlsafe_base64
+    end
+
+    def remember
+      self.remember_token = User.new_token
+      update_attribute(:remember_digest, User.digest(self.remember_token))
+    end
+
+    # Returns true if the given token matches the digest.
+    # the syntax is confusing but here's what it's doing? 
+    # BCrypt::Password.new(remember_digest) - creates a new Password object with the 
+    # password hash
+    # .is_password?(string) takes the given string (remember_token) and produces a hash. 
+    # then compares the newly created hash to the one provided by remember_digest. 
+    # remember_digest is never decrypted, but rather remember_token is encrypted and then compared
+    # to the stored value.
+    def authenticated?(remember_token)
+      return false if remember_digest.nil?
+      BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
+
+    def forget
+        update_attribute(:remember_digest, nil)
+    end
 end
