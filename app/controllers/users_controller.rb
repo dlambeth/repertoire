@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
      #use byebug to enter debugging mode in the server
     #debugger
   end
@@ -60,15 +61,6 @@ class UsersController < ApplicationController
       #permit the user hash to have specified attributes.
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
-    end
-
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
     end
 
     #confirms that the user accesing the page is the right user
