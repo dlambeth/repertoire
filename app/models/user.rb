@@ -99,9 +99,16 @@ class User < ActiveRecord::Base
         update_attribute(:remember_digest, nil)
     end
 
-    #Defined a proto-feed.  Will eventually include followed users as well. 
+    #Returns a user's status feed
     def feed
-      Micropost.where("user_id = ?", id)
+      #compact, but not as efficient as letting the db do the subset 
+      #Micropost.where("user_id IN (:following_ids) OR user_id = :user_id",
+      #  following_ids: following_ids, user_id: user)
+
+      following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+      Micropost.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
     end 
 
     def follow(other_user)
