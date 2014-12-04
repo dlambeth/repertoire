@@ -16,6 +16,13 @@
       </ol>
       <%= will_paginate @mylists %>
     <% end %>
+    <% if @user.items.any? %>
+      <h3>My Items (<%= @user.items.count %>)</h3>
+      <ol class="lists">
+        <%= render @items %>
+      </ol>
+      <%= will_paginate @items %>
+    <% end %>
   </div>
   </div>
   
