@@ -1,0 +1,7 @@
+<li id="mylist-<%= my_list.id %>">
+  <span class="user"><%= link_to my_list.user.name, my_list.user %></span>
+  <span class="title"><%= my_list.title %></span>
+  <span class="timestamp">
+    Created <%= time_ago_in_words(my_list.created_at) %> ago.
+  </span>
+</li>

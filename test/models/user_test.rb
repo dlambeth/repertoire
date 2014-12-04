@@ -102,4 +102,12 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "associated lists should be destroyed" do
+    @user.save
+    @user.lists.create!(title: "Hola!")
+    assert_difference 'MyList.count', -1 do
+      @user.destroy
+    end
+  end
+
 end

@@ -20,6 +20,16 @@
       </ol>
       <%= will_paginate @microposts %>
     <% end %>
+
+    <% if @user.lists.any? %>
+      <h3>My Lists (<%= @user.lists.count %>)</h3>
+      <ol class="lists">
+        <%= render @mylists %>
+      </ol>
+      <%= will_paginate @mylists %>
+    <% end %>
   </div>
+  </div>
+  
 
 </div>

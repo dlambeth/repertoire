@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+    has_many :lists, class_name: "MyList", dependent: :destroy
+    
+
     has_many :microposts, dependent: :destroy
     #active_relationships - following
     has_many :active_relationships, class_name: "Relationship", 

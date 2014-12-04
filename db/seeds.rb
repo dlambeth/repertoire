@@ -39,3 +39,10 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
+#MyLists
+users = User.order(:created_at).take(6)
+50.times do
+  title = Faker::Lorem.sentence(1)
+  users.each { |user| user.lists.create!(title: title) }
+end
+

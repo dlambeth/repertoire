@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @mylists = @user.lists.paginate(page: params[:page])
      #use byebug to enter debugging mode in the server
     #debugger
   end
