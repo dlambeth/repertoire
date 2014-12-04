@@ -1,23 +1,5 @@
 class User < ActiveRecord::Base
     has_many :lists, class_name: "MyList", dependent: :destroy
-    
-
-    has_many :microposts, dependent: :destroy
-    #active_relationships - following
-    has_many :active_relationships, class_name: "Relationship", 
-                                    foreign_key: "follower_id",
-                                    dependent: :destroy
-
-    #followed users.  Override followed with "fallowing" so we can write user.following 
-    #instead of user.folleweds
-    has_many :following, through: :active_relationships, source: :followed
-
-    #passive relationships - the user's followers
-    has_many :passive_relationships, class_name: "Relationship", 
-                                    foreign_key: "followed_id",
-                                    dependent: :destroy
-    #for consistency with following, keep the source attr, although it's not technically necessary
-    has_many :followers, through: :passive_relationships, source: :follower
 
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save   :downcase_email
@@ -100,30 +82,6 @@ class User < ActiveRecord::Base
 
     def forget
         update_attribute(:remember_digest, nil)
-    end
-
-    #Returns a user's status feed
-    def feed
-      #compact, but not as efficient as letting the db do the subset 
-      #Micropost.where("user_id IN (:following_ids) OR user_id = :user_id",
-      #  following_ids: following_ids, user_id: user)
-
-      following_ids = "SELECT followed_id FROM relationships
-                     WHERE  follower_id = :user_id"
-      Micropost.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
-    end 
-
-    def follow(other_user)
-      active_relationships.create(followed_id: other_user.id)
-    end
-
-    def unfollow(other_user)
-      active_relationships.find_by(followed_id: other_user.id).destroy
-    end
-    
-    def following?(other_user)
-      following.include?(other_user)
     end
 
     private
