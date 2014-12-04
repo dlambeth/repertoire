@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @my_list = current_user.lists.build
       @mylists = current_user.lists.paginate(page: params[:page])
+      @item = current_user.items.build
     end
   end
 
