@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204185607) do
+ActiveRecord::Schema.define(version: 20141205042630) do
 
   create_table "items", force: true do |t|
     t.text     "title"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20141204185607) do
 
   add_index "items", ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
   add_index "items", ["user_id"], name: "index_items_on_user_id"
+
+  create_table "list_items", force: true do |t|
+    t.integer  "my_list_id"
+    t.integer  "item_id"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "list_items", ["item_id"], name: "index_list_items_on_item_id"
+  add_index "list_items", ["my_list_id", "item_id"], name: "index_list_items_on_my_list_id_and_item_id", unique: true
+  add_index "list_items", ["my_list_id"], name: "index_list_items_on_my_list_id"
 
   create_table "my_lists", force: true do |t|
     t.text     "title"
