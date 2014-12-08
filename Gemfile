@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 
-gem 'rails',                   '4.2.0.beta4'
+#gem 'rails',                   '4.2.0.beta4'
+#currently there are some issues with Rails 4.2. and the Active Record Serializer
+gem 'rails', '4.1.6'
+gem "active_model_serializers", "0.9.0"
 #used for password migration
 gem 'bcrypt',                  '3.1.7'
 gem 'faker',                   '1.4.2'
@@ -14,11 +17,18 @@ gem 'bootstrap-sass',          '3.2.0.0'
 gem 'sass-rails',              '5.0.0.beta1'
 gem 'uglifier',                '2.5.3'
 gem 'coffee-rails',            '4.0.1'
-gem 'jquery-rails',            '4.0.0.beta2'
-gem 'turbolinks',              '2.3.0'
+gem 'jquery-rails'
+#gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
-gem 'rails-html-sanitizer',    '1.0.1'
+#disabling, not sure if we need it or not. 
+#gem 'rails-html-sanitizer',    '1.0.1'
 gem 'sdoc',                    '0.4.0', group: :doc
+
+#ember support
+gem 'ember-rails'
+gem 'ember-source'
+gem 'emblem-rails'
+
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
