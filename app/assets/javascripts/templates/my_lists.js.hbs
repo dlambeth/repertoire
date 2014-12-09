@@ -1,0 +1,23 @@
+<div class="container" id="mylists">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="list-group">
+        <div class="list-group-item">
+          {{input class="new-list" placeholder="Create a new list" value=fields.title}}
+          <button class="btn btn-primary btn-sm new-list-button" {{action "createList"}}
+          {{bind-attr disabled=disabled}}>Add</button>
+        </div>
+      
+        {{#each mylist in controller}}
+          {{#link-to 'my_list' mylist class="list-group-item"}}
+            {{mylist.title}}
+            <span class="pointer glyphicon glyphicon-chevron-right"></span>
+          {{/link-to}}
+        {{/each}}
+      </div>
+    </div>
+    
+    {{outlet}}
+    
+  </div>
+</div>

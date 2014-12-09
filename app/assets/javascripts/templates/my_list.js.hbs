@@ -1,0 +1,8 @@
+<div class="col-md-8" id="my_list">
+  <h3>{{input value=model.title action="saveChanges"}}</h3>
+  <div class="list-group">
+    {{#each item in model.items}}
+      {{input value=item.title action="saveChanges"}}
+    {{/each}}
+  </div>
+</div>
