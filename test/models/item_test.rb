@@ -29,4 +29,13 @@ class ItemTest < ActiveSupport::TestCase
   test "order should be alphabetical" do
     assert_equal Item.first, items(:first)
   end
+
+  test "can see associated lists" do
+    assert_not
+  end
+
+  test "can add to a list" do
+
+  end
+
 end

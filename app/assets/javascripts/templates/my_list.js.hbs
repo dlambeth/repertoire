@@ -5,4 +5,11 @@
       {{input value=item.title action="saveChanges"}}
     {{/each}}
   </div>
+  <label for="selectSong">Add a new song</label>
+  <select id="selectSong">
+    {{#each song in songs}}
+    <option></option>
+    {{/each}}
+  </select>
+
 </div>

@@ -8,9 +8,9 @@
           {{bind-attr disabled=disabled}}>Add</button>
         </div>
       
-        {{#each model in controller}}
-          {{#link-to 'my_list' model class="list-group-item"}}
-            {{model.title}}
+        {{#each mylists}}
+          {{#link-to 'my_list' mylists class="list-group-item"}}
+            {{title}}
             <span class="pointer glyphicon glyphicon-chevron-right"></span>
           {{/link-to}}
         {{/each}}
@@ -18,9 +18,9 @@
 
       <div class="list-group">
         <div class="list-group-item">
-          {{input class="new-item" placeholder="Add a song" value=itemFields.title}}
-          <button class="btn btn-primary btn-sm new-list-button" {{action "createItem"}}
-          {{bind-attr disabled=addItemDisabled}}>Add</button>
+          {{input class="new-item" placeholder="Add a song" value=fields.title}}
+          <button class="btn btn-primary btn-sm new-list-button" {{action "createList"}}
+          {{bind-attr disabled=disabled}}>Add</button>
         </div>
       
         {{#each items}}

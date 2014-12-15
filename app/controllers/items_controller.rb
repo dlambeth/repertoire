@@ -2,6 +2,9 @@ class ItemsController < ApplicationController
   respond_to :json
   before_action :logged_in_user #, only: [:create, :destroy]
   
+  def index
+    respond_with current_user.items
+  end
 
   def create
     @item = current_user.items.build(item_params)

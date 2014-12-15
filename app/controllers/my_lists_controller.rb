@@ -3,7 +3,8 @@ class MyListsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with MyList.all
+    #respond_with MyList.all
+    respond_with current_user.lists
   end
 
   def show

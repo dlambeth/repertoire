@@ -33,18 +33,32 @@ User.create!(name:  "Me!",
                activated_at: Time.zone.now)
 end
 
-users = User.order(:created_at).take(6)
+user = User.first()
 
 #MyLists
-users = User.order(:created_at).take(6)
-50.times do
-  title = Faker::Lorem.sentence(1)
-  users.each { |user| user.lists.create!(title: title) }
-end
+listTitles = [ 
+  "Holiday Favorites", 
+  "Fats Waller", 
+  "Duke Ellington", 
+  "For the kids", 
+  "Things to learn next"
+  ]
 
-#Items
-50.times do
-  title = Faker::Name.name
-  users.each { |user| user.items.create!(title: title) }
-end
+listTitles.each { |title| user.lists.create!(title: title) }
+
+songs = [
+  "Winter Wonderland", 
+  "White Christmas", 
+  "I'll see you in my Dreams", 
+  "Solitude", 
+  "I Got it bad (And that Ain't Good)", 
+  "You Are My Sunshine",
+]
+
+songs.each { |title| user.items.create!(title: title) }
+
+#make one association to get us started
+list = user.lists.first()
+song = user.items.first()
+list.list_items.create!(item_id: song.id)
 
