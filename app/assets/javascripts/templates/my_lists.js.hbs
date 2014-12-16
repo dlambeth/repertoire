@@ -1,40 +1,16 @@
-<div class="container" id="mylists">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="list-group">
-        <div class="list-group-item">
-          {{input class="new-list" placeholder="Create a new list" value=fields.title}}
-          <button class="btn btn-primary btn-sm new-list-button" {{action "createList"}}
-          {{bind-attr disabled=disabled}}>Add</button>
-        </div>
-      
-        {{#each model in controller}}
-          {{#link-to 'my_list' model class="list-group-item"}}
-            {{model.title}}
-            <span class="pointer glyphicon glyphicon-chevron-right"></span>
-          {{/link-to}}
-        {{/each}}
+<div id="mylists" class="row">
+  
+  {{#each}}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <h4>{{title}}</h4>
+        <ol>
+          {{#each item in items}}
+            <li>Song 1</li>
+          {{/each}}
+        </ol>
       </div>
-
-      <div class="list-group">
-        <div class="list-group-item">
-          {{input class="new-item" placeholder="Add a song" value=itemFields.title}}
-          <button class="btn btn-primary btn-sm new-list-button" {{action "createItem"}}
-          {{bind-attr disabled=addItemDisabled}}>Add</button>
-        </div>
-      
-        {{#each items}}
-          {{#link-to 'item' item class="list-group-item"}}
-            {{title}}
-            <span class="pointer glyphicon glyphicon-chevron-right"></span>
-          {{/link-to}}
-        {{/each}}
-      </div>
-
-      
     </div>
-    
-    {{outlet}}
-    
-  </div>
+  {{/each}}
 </div>
+{{outlet}}
