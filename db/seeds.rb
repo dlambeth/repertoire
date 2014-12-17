@@ -5,14 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar", 
-             admin: true, 
-             activated: true, 
-             activated_at: Time.zone.now)
-
 User.create!(name:  "Me!",
              email: "dawn@example.com",
              password:              "foobar",
@@ -36,7 +28,8 @@ end
 user = User.first()
 
 #MyLists
-listTitles = [ 
+lists = [ 
+  "Starting List",
   "Holiday Favorites", 
   "Fats Waller", 
   "Duke Ellington", 
@@ -44,7 +37,7 @@ listTitles = [
   "Things to learn next"
   ]
 
-listTitles.each { |title| user.lists.create!(title: title) }
+lists.each { |title| user.lists.create!(title: title) }
 
 songs = [
   "Winter Wonderland", 
@@ -52,13 +45,20 @@ songs = [
   "I'll see you in my Dreams", 
   "Solitude", 
   "I Got it bad (And that Ain't Good)", 
-  "You Are My Sunshine",
+  "Day Dream",
+  "You Are My Sunshine"
 ]
 
-songs.each { |title| user.items.create!(title: title) }
-
-#make one association to get us started
+#add each song to the db, and add them all to a single list so we have something to play with
 list = user.lists.first()
-song = user.items.first()
-list.list_items.create!(item_id: song.id)
+songs.each do |title| 
+  user.items.create!(title: title) 
+  user.save!
+  song = user.items(true).last()
+  list.list_items.create!(item_id: song.id)
+  list.save
+end
+
+
+
 

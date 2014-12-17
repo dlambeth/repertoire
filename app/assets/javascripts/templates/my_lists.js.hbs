@@ -1,16 +1,30 @@
-<div id="mylists" class="row">
-  
-  {{#each}}
-    <div class="col-sm-6 col-md-4">
+
+<div class="col-md-3">
+  <div id="mylists">
+    <h3>Set Lists</h3>
+      {{#each}}
+          <div class="thumbnail">
+            <h4>{{title}}</h4>
+            <ol>
+              {{#each item in items}}
+                <li>{{item.title}}</li>
+              {{/each}}
+            </ol>
+        </div>
+      {{/each}}
+  </div>
+  <div id="all_songs" class="row">
+    <h3>All Songs</h3>
       <div class="thumbnail">
-        <h4>{{title}}</h4>
-        <ol>
-          {{#each item in items}}
-            <li>Song 1</li>
-          {{/each}}
-        </ol>
+      <ul>
+      {{#each song in songLibrary}}
+        <li>{{song.title}}</li>
+      {{/each}}
+      </ul>
       </div>
-    </div>
-  {{/each}}
+  </div>
 </div>
+<div class="col-md-9">
+
 {{outlet}}
+</div>
