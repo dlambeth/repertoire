@@ -1,4 +1,6 @@
 App.ItemController = Ember.ObjectController.extend
   
   actions:
-    saveChanges: -> @get('model').save()
+    saveItem: -> 
+      alert 'here we go!'
+      @get('model').save()

@@ -17,7 +17,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    respond_with item.update(item_params)
+    @item = Item.find(params[:id])
+    if @item.update_attributes(item_params)
+      respond_with @item
+    end
   end
 
   def destroy

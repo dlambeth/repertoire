@@ -11,3 +11,7 @@ App.MyListsController = Ember.ArrayController.extend
           newList.save().then =>
               @set 'fields', {}
 
+      #createItem: ->
+      #  newItem = @store.createRecord 'item'
+      #    @transitionToRoute("items")
+

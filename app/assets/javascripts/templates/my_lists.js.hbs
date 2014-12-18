@@ -18,9 +18,10 @@
       <div class="thumbnail">
       <ul>
       {{#each song in songLibrary}}
-        <li>{{song.title}}</li>
+        <li>{{#link-to 'item' song.id}}{{song.title}}{{/link-to}}</li>
       {{/each}}
       </ul>
+      <a href="#" {{action createItem}}>+ New Song</a>
       </div>
   </div>
 </div>

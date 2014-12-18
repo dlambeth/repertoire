@@ -5,7 +5,8 @@ App.Router.map ()->
 
   @resource 'my_lists', path: '/', ->
     @resource 'my_list', path: '/my_lists/:id'
-   # @resource 'item', path: '/items/:id'
+    #to start, let's show an item on it's own page
+    @resource 'item', path: '/items/:id'
     #@resource 'items', path: '/items', ->
-  #    @resource 'item', path: '/items/:id'
+    #  @route 'edit', path: '/items/:id/'
   
