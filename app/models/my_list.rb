@@ -19,4 +19,11 @@ class MyList < ActiveRecord::Base
 
   accepts_nested_attributes_for :items
   
+  def add_item(item_id)
+    list_items.create(item_id: item_id)
+  end
+
+  def remove_item(item)
+    list_items.find_by(item_id: item.id).destroy
+  end
 end

@@ -4,7 +4,7 @@
     <h3>Set Lists</h3>
       {{#each}}
           <div class="thumbnail">
-            <h4>{{title}}</h4>
+            <h4>{{#link-to 'my_list' this.id}}{{title}}{{/link-to}}</h4>
             <ol>
               {{#each item in items}}
                 <li>{{item.title}}</li>

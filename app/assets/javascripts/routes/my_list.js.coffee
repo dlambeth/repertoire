@@ -4,4 +4,4 @@ App.MyListRoute = Ember.Route.extend
 
   setupController: (controller, model)->
     @_super(controller, model)
-    controller.set 'items',  @store.find 'item'
+    controller.set 'songLibrary', @store.find 'item'

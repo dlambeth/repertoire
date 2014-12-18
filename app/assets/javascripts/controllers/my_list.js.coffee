@@ -1,11 +1,23 @@
-App.MyListController = Ember.ObjectController.extend
-  itemFields: {}
+App.MyListController = Ember.ObjectController.extend(
+  selectedSong: null
 
   actions:
-    saveChanges: -> @get('model').save()
+    saveChanges: -> 
+      @get('model').save()
+      return
 
-    addItem: -> 
-        newItem = @store.createRecord 'item', @get('itemFields')
-        newItem.save().then =>
-              @set 'itemFields', {}
+    addItemToList: ->
+      list = @get('model')
+      list_item = @store.createRecord('list-item',
+         my_list: list
+         item: @get('selectedSong')
+      )
+      list_item.save()
+      return
+
+)
+
+
+
+
     
