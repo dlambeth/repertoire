@@ -4,12 +4,11 @@ class ListItemsController < ApplicationController
   def create
     logger.debug "list item params #{params.inspect}, there you go"
     logger.debug "result of list_item_params method #{list_item_params.inspect}"
-    listItem = ListItem.create(list_item_params)
-    #list = current_user.lists.find(listItem.my_list)
-    #item = params[:item_id]
-    #list.add_item(item.id)
+    @listItem = ListItem.create(list_item_params)
+    #todo: for now just return the list item.  Eventually I think we will
+    #want to return the list when we add support for positioning.
     respond_to do |format|
-      format.js listItem
+      format.json { render :json => @listItem }
     end
   end
 

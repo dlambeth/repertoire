@@ -11,8 +11,8 @@
     <button {{action 'addItemToList'}}>Add Song To List</button>
   <div class="list-group">
     <ul>
-    {{#each item in model.items}}
-      <ol>{{item.title}}
+    {{#each li in model.listItems}}
+      <ol>{{li.item.title}}
     {{/each}}
     </ul>
   </div>
