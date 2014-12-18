@@ -21,6 +21,13 @@ class MyListsController < ApplicationController
 
   end
 
+  def update
+    @myList = MyList.find(params[:id])
+    if @myList.update_attributes(mylist_params)
+      respond_with @myList
+    end
+  end
+
   def destroy
   end
 
