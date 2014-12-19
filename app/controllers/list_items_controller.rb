@@ -2,8 +2,6 @@ class ListItemsController < ApplicationController
   before_action :logged_in_user
 
   def create
-    logger.debug "list item params #{params.inspect}, there you go"
-    logger.debug "result of list_item_params method #{list_item_params.inspect}"
     @listItem = ListItem.create(list_item_params)
     #todo: for now just return the list item.  Eventually I think we will
     #want to return the list when we add support for positioning.

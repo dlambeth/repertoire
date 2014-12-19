@@ -1,6 +1,13 @@
 App.MyListController = Ember.ObjectController.extend(
   selectedSong: null
 
+  songLibrary: (->
+    that = @
+    @store.filter('item', (item) ->
+      !(that.get('model').get('itemIdArray').contains(item.id))
+    )
+  ).property('listItems')
+
   actions:
     saveChanges: -> 
       @get('model').save()
