@@ -7,5 +7,8 @@ class ListItem < ActiveRecord::Base
 
     accepts_nested_attributes_for :item, 
                                   :reject_if => :all_blank
+
+    #todo, the db has a unique constraint so maybe the model should as well?
+    
                                   
 end

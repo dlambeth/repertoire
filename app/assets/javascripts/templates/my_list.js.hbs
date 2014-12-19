@@ -9,10 +9,10 @@
     selection=selectedSong
     prompt="Please select a song" }}
     <button {{action 'addItemToList'}}>Add Song To List</button>
-  <div class="list-group">
-    <ul>
-    {{#each li in model.listItems}}
-      <ol>{{li.item.title}}
+  <div >
+    <ul class="list-group">
+    {{#each listItem in model.listItems}}
+      <li class="list-group-items">{{listItem.item.title}}</li>
     {{/each}}
     </ul>
   </div>

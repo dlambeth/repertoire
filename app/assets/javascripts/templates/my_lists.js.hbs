@@ -1,17 +1,13 @@
 
 <div class="col-md-3">
-  <div id="mylists">
+  <div id="mylists" class="list-group">
     <h3>Set Lists</h3>
       {{#each}}
-          <div class="thumbnail">
-            <h4>{{#link-to 'my_list' this.id}}{{title}}{{/link-to}}</h4>
-            <ol>
-              {{#each item in items}}
-                <li>{{item.title}}</li>
-              {{/each}}
-            </ol>
-        </div>
+        {{#link-to 'my_list' this.id class="list-group-item" }}
+          {{title}}
+        {{/link-to}}
       {{/each}}
+      {{#link-to 'my_lists.new'}}+ Add a new list{{/link-to}}
   </div>
   <div id="all_songs" class="row">
     <h3>All Songs</h3>
