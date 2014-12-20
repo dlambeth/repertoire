@@ -1,19 +1,8 @@
 
-<div class="tab-pane active" id="tab-items">
-    <div id="mylists" class="row">
-  
-      {{#each}}
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <h4>{{title}}</h4>
-            <ol>
-              {{#each item in items}}
-                <li>{{item.title}}</li>
-              {{/each}}
-            </ol>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-    {{outlet}}
-</div>
+<table class="table table-hover">
+  <tbody>
+    {{#each}}
+      <tr><td>{{title}}</td></tr>
+    {{/each}}
+  </tbody>
+</table>

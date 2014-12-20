@@ -1,27 +1,17 @@
 
 <div class="col-md-3">
   <div id="mylists" class="list-group">
-    <h3>Set Lists</h3>
+  {{#link-to 'items'}}Manage Song Library{{/link-to}}
+    <h5>Set Lists</h5>
+    {{#link-to 'my_lists.new'}}+ Add a new list{{/link-to}}
       {{#each}}
         {{#link-to 'my_list' this.id class="list-group-item" }}
           {{title}}
         {{/link-to}}
       {{/each}}
-      {{#link-to 'my_lists.new'}}+ Add a new list{{/link-to}}
-  </div>
-  <div id="all_songs" class="row">
-    <h3>All Songs</h3>
-      <div class="thumbnail">
-      <ul>
-      {{#each song in songLibrary}}
-        <li>{{#link-to 'item' song.id}}{{song.title}}{{/link-to}}</li>
-      {{/each}}
-      </ul>
-      <a href="#" {{action createItem}}>+ New Song</a>
-      </div>
+      
   </div>
 </div>
 <div class="col-md-9">
-
 {{outlet}}
 </div>

@@ -8,6 +8,6 @@ App.Router.map ()->
     @route 'new'
     #to start, let's show an item on it's own page
     @resource 'item', path: '/items/:id'
-    #@resource 'items', path: '/items', ->
+    @resource 'items', path: '/items', ->
     #  @route 'edit', path: '/items/:id/'
   

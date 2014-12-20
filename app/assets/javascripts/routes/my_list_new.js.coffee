@@ -4,8 +4,3 @@ App.MyListsNewRoute = Ember.Route.extend
 
   afterModel: (model, transition)->
      @transitionTo('my_list', model)
-
-  #renderTemplate: ->
-  #  this.render( 'my_list', {
-  #      controller: 'myListsNew'
-  #  })
