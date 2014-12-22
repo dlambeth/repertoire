@@ -13,4 +13,5 @@ class SessionsController < Devise::SessionsController
         render json: data, status: 201
       end
     end
-  endend
+  end
+end

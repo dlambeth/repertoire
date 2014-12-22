@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
-`import startApp from 'repertoire/tests/helpers/start-app'`
+`import startApp from 'repember/tests/helpers/start-app'`
 `import Ember from 'ember'`
 
-var App
+App
 
 module 'Integration - Landing Page', 
   setup: ->
