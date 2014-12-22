@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 #currently there are some issues with Rails 4.2. and the Active Record Serializer
 gem 'rails', '4.1.6'
 gem "active_model_serializers", "0.9.0"
+
+gem 'devise'
 #used for password migration
 gem 'bcrypt',                  '3.1.7'
 gem 'faker',                   '1.4.2'

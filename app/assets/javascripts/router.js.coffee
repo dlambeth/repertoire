@@ -3,7 +3,7 @@
 App.Router.map ()->
   # @resource('posts')
 
-  @resource 'my_lists', path: '/', ->
+  @resource 'my_lists', path: '/my_lists', ->
     @resource 'my_list', path: '/my_lists/:id'
     @route 'new'
     #to start, let's show an item on it's own page
