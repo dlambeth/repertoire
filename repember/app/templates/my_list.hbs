@@ -1,0 +1,20 @@
+<div class="col-md-8" id="my_list">
+  <h3>{{input value=title focus-out="saveChanges" size="100"}}</h3>
+  <label for="selectSong">Add a new song</label>
+  {{view "select" 
+    id="selectSong"
+    content=songLibrary
+    optionValuePath="content.id"
+    optionLabelPath="content.title"
+    selection=selectedSong
+    prompt="Please select a song" }}
+    <button {{action 'addItemToList'}}>Add Song To List</button>
+  
+    <table class="table table-hover">
+      <tbody>
+        {{#each listItem in model.listItems}}
+          <tr><td>{{listItem.item.title}}</td></tr>
+        {{/each}}
+      </tbody>
+  </table>
+</div>

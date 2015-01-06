@@ -2,17 +2,18 @@
 `import startApp from 'repember/tests/helpers/start-app'`
 `import Ember from 'ember'`
 
-App
 
 module 'Integration - Landing Page', 
   setup: ->
     App = startApp();
   
-  teardown: ->
-    Ember.run(App, 'destroy')
+  #Fix me, what should we do on teardown?
+  #teardown: ->
+    #Ember.run(App, 'destroy')
+    #App.reset()
 
-test 'Should welcome me to Boston Ember', ->
+test 'Should welcome me to Repertoire Ember', ->
   visit('/').then( ->
-    equal(find('h2#title').text(), 'Welcome to Boston Ember');
+    equal(find('h2#title').text(), 'Welcome to Repertoire Ember');
   )
 

@@ -1,0 +1,9 @@
+<form id="createuser" {{action 'createuser' on='submit'}}>
+  <label for="username">User name</label>
+  {{input id='username' placeholder='Enter Email Address'
+    value=username}}
+  <label for="password">Password</label>
+   {{input id='password' placeholder='Enter Password'
+     type='password' value=password}}
+   <button id="submit" type="submit">Create Account</button>
+</form>
