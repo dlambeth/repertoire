@@ -12,17 +12,17 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
   };
 
-  //support for devise:
-  ENV['simple-auth'] = {   
-    authorizer: 'simple-auth-authorizer:devise'  
-   };  
-   
+  ENV['simple-auth'] = {  
+    authorizer: 'simple-auth-authorizer:devise' 
+  }; 
+
   if (environment === 'development') {
     ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -46,6 +46,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 
-  } 
+  }
+
   return ENV;
 };
