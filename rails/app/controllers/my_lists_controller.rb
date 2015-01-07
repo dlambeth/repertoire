@@ -1,5 +1,5 @@
 class MyListsController < ApplicationController
-  before_action :logged_in_user #, only: [:create, :destroy]
+  before_action :authenticate_user! #, only: [:create, :destroy]
   respond_to :json
 
   def index

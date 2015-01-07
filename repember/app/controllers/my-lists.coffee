@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-App.MyListsController = Ember.ArrayController.extend
+MyListsController = Ember.ArrayController.extend
   fields: {}
   
   disabled: (->

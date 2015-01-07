@@ -1,4 +1,4 @@
-`import Ember from 'ember'`
+`import DS from 'ember-data'`
 
 ListItem = DS.Model.extend
   item: DS.belongsTo('item')

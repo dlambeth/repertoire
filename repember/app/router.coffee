@@ -10,8 +10,8 @@ Router.map ->
   @route "login"
   #@route "newuser"
 
-  @resource 'my_lists', path: '/my_lists', ->
-    @resource 'my_list', path: '/my_lists/:id'
+  @resource 'myLists', path: '/my-lists', ->
+    @resource 'myList', path: '/my-lists/:id'
     @route 'new'
     #to start, let's show an item on it's own page
     @resource 'item', path: '/items/:id'
