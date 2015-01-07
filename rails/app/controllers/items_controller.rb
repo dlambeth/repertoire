@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   respond_to :json
-  before_action :logged_in_user #, only: [:create, :destroy]
+  before_action :authenticate_user! #, only: [:create, :destroy]
   
   def index
     respond_with current_user.items

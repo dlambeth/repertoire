@@ -2,9 +2,9 @@
   <div id="mylists" class="list-group">
   {{#link-to 'items'}}Manage Song Library{{/link-to}}
     <h5>Set Lists</h5>
-    {{#link-to 'my_lists.new'}}+ Add a new list{{/link-to}}
+    {{#link-to 'myLists.new'}}+ Add a new list{{/link-to}}
       {{#each}}
-        {{#link-to 'my_list' this.id class="list-group-item" }}
+        {{#link-to 'myList' this.id class="list-group-item" }}
           {{title}}
         {{/link-to}}
       {{/each}}
