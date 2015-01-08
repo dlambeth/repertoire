@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  protected
+
+    def set_default_response_format
+      request.format = :json
+    end
+
   private
  
     def authenticate_user_from_token!

@@ -1,6 +1,8 @@
-class ItemsController < ApplicationController
+class Api::V1::ItemsController < ApplicationController
   respond_to :json
   before_action :authenticate_user! #, only: [:create, :destroy]
+  #just punt and always ensure we are returning json
+  before_action :set_default_response_format
   
   def index
     respond_with current_user.items

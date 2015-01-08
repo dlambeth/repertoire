@@ -3,8 +3,17 @@ Rails.application.routes.draw do
   #devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  mount API::Base, at: "/"
-  mount GrapeSwaggerRails::Engine, at: "/documentation"
+  #mount API::Base, at: "/"
+  #mount GrapeSwaggerRails::Engine, at: "/documentation"
+  namespace :api do
+    namespace :v1 do
+      resources :my_lists, only: [:index, :show, :create, :update, :destroy]
+      resources :items, only: [:index, :show, :create, :update, :destroy]
+      resources :list_items,       only: [:create, :destroy]
+    end
+  end
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
