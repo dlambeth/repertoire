@@ -41,6 +41,15 @@ gem 'spring',        group: :development
 gem "activeadmin", github: "gregbell/active_admin" # Until it's 1.0.0
 gem "devise"
 
+#api support
+gem "active_model_serializers" , "0.9.0"
+gem "grape", "0.9.0"
+gem "grape-active_model_serializers"
+#explicit declare of grape-swagger to fix issue: https://github.com/tim-vandecasteele/grape-swagger/issues/60
+#gem 'grape-swagger', github: 'tim-vandecasteele/grape-swagger'
+gem "grape-swagger-rails"
+gem "rack-cors", require: "rack/cors"
+
 group :development do
   gem "better_errors"
   gem "meta_request"
