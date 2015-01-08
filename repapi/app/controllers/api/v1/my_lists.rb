@@ -3,9 +3,9 @@ module API
     class MyLists < Grape::API
       include API::V1::Defaults
 
-      resource :mylist do
+      resource :my_lists do
         desc "Return all lists"
-        get "", root: :mylist do
+        get "", root: :my_lists do
           MyList.all
         end
 
@@ -13,7 +13,7 @@ module API
         params do
           requires :id, type: String, desc: "ID of the list"
         end
-        get ":id", root: "list" do
+        get ":id", root: "my_list" do
           MyList.where(id: permitted_params[:id]).first!
         end
       end
