@@ -1,5 +1,7 @@
 class Api::V1::MyListsController < ApplicationController
   before_action :authenticate_user!
+
+  #just punt and always ensure we are returning json
   before_action :set_default_response_format
   respond_to :json
 
@@ -32,11 +34,7 @@ class Api::V1::MyListsController < ApplicationController
   def destroy
   end
 
-  protected
-
-    def set_default_response_format
-      request.format = :json
-    end
+  
 
   private
     def my_lists
