@@ -6,7 +6,7 @@ Router = Ember.Router.extend
 
 Router.map ->
   @route "application"
-  @route "protected"
+  #@route "protected"
   @route "login"
   #@route "newuser"
 
@@ -14,8 +14,9 @@ Router.map ->
     @resource 'myList', path: '/my-lists/:id'
     @route 'new'
     #to start, let's show an item on it's own page
-    @resource 'item', path: '/items/:id'
+    #@resource 'item', path: '/items/:id'
     @resource 'items', path: '/items', ->
-    #  @route 'edit', path: '/items/:id/'
-
+      @route 'edit', path: '/items/:id/'
+  
+  #@resource 'items', path: '/items'
 `export default Router`

@@ -17,7 +17,9 @@ class Api::V1::MyListsController < ApplicationController
   def create
     @mylist = current_user.lists.build(mylist_params)
     if @mylist.save
-      respond_with :api, :v1, @mylist
+      respond_to do |format|
+        format.json { render :json => @mylist }
+      end
     else
       #todo error handling
     end
