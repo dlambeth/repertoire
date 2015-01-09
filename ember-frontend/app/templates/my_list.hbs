@@ -1,5 +1,8 @@
 <div class="col-md-8" id="my_list">
-  <h3>{{input value=title focus-out="saveChanges" size="100"}}</h3>
+  <h3>{{input value=title focus-out="saveChanges"}}</h3>
+  <table class="table table-hover table-striped table-bordered table-condensed">
+      <tbody>
+    <tr><td>
   <label for="selectSong">Add a new song</label>
   {{view "select" 
     id="selectSong"
@@ -9,9 +12,8 @@
     selection=selectedSong
     prompt="Please select a song" }}
     <button {{action 'addItemToList'}}>Add Song To List</button>
-  
-    <table class="table table-hover">
-      <tbody>
+   </td></tr>
+    
         {{#each listItem in model.listItems}}
           <tr><td>{{listItem.item.title}}</td></tr>
         {{/each}}

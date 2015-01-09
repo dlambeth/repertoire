@@ -1,13 +1,15 @@
 <div class="col-md-3">
   <div id="mylists" class="list-group">
-  {{#link-to 'items'}}Manage Song Library{{/link-to}}
     <h5>Set Lists</h5>
-    {{#link-to 'myLists.new'}}+ Add a new list{{/link-to}}
-      {{#each}}
-        {{#link-to 'myList' this.id class="list-group-item" }}
-          {{title}}
-        {{/link-to}}
-      {{/each}}
+    {{#link-to 'myLists.new' class="list-group-item"}}+ Add a new list{{/link-to}}
+    {{#each}}
+      <div class="list-group-item">
+      {{#link-to 'myList' this.id }}{{title}}{{/link-to}}
+      <button type="button" class="btn btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+      </button>
+      </div>
+    {{/each}}
   </div>
 </div>
 <div class="col-md-9">
