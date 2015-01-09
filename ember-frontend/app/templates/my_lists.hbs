@@ -5,9 +5,7 @@
     {{#each}}
       <div class="list-group-item">
       {{#link-to 'myList' this.id }}{{title}}{{/link-to}}
-      <button type="button" class="btn btn-default" aria-label="Left Align">
-        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-      </button>
+      <i class="fa fa-trash-o fa-fw"></i>Delete
       </div>
     {{/each}}
   </div>

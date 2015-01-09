@@ -1,7 +1,7 @@
 {
   "name": "repember",
   "version": "0.0.0",
-  "description": "Small description for repember goes here",
+  "description": "Front end for Repertoire sample app",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -35,5 +35,9 @@
     "ember-export-application-global": "^1.0.0",
     "express": "^4.8.5",
     "glob": "^4.0.5"
+  },
+  "dependencies": {
+    "broccoli-sass": "^0.3.3",
+    "broccoli-static-compiler": "^0.2.1"
   }
 }
