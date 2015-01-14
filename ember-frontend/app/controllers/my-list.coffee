@@ -31,5 +31,10 @@ MyListController = Ember.ObjectController.extend
     delete: ->
       @get('model').destroyRecord()
 
+    deleteItem: (list_item) ->
+      
+
+
+
 
 `export default MyListController`

@@ -11,13 +11,14 @@ Router.map ->
   #@route "newuser"
 
   @resource 'myLists', path: '/my-lists', ->
-    @resource 'myList', path: '/my-lists/:id'
+    @resource 'myList', path: '/:id'
     @route 'new'
+
     #to start, let's show an item on it's own page
     #@resource 'item', path: '/items/:id'
-    @resource 'items', path: '/items', ->
-      @route 'edit', path: '/items/:id/'
-      @route 'new'
+  @resource 'items', path: '/items', ->
+    #@route 'edit', path: '/items/:id/'
+    #@route 'new'
   
   #@resource 'items', path: '/items'
 `export default Router`
