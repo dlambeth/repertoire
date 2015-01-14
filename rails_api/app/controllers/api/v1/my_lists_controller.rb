@@ -16,7 +16,7 @@ class Api::V1::MyListsController < ApplicationController
 
   def create
     @mylist = current_user.lists.build(mylist_params)
-    if @mylist.save
+    if @mylist.save!
       respond_to do |format|
         format.json { render :json => @mylist }
       end
@@ -34,9 +34,11 @@ class Api::V1::MyListsController < ApplicationController
   end
 
   def destroy
+    @myList = MyList.find(params[:id])
+    if @myList.destroy!
+      render json: {}, status: :no_content
+    end
   end
-
-  
 
   private
     def my_lists

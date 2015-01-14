@@ -1,7 +1,8 @@
-<table class="table table-hover">
+<table class="table table-hover table-striped table-bordered table-condensed">
   <tbody>
-    {{#each}}
-      <tr><td>{{title}}</td></tr>
+    <tr><td>{{input value=fields.title placeholder="Add a song"}}<button {{action 'createNewItem'}}>Add</button></td></tr>
+    {{#each itemController="item"}}
+      <tr><td class="song"><a href="#" {{action "enableEdit"}}<i class="fa fa-pencil fa-fw"></i></a> {{input value=title disabled=isDisabled  focus-out="saveChanges"}}<a href="#" {{action "deleteItem" this}}><i class="fa fa-trash-o fa-fw"></i>Delete</a></td></tr>
     {{/each}}
   </tbody>
 </table>

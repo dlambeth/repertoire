@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :user
   
-  has_many :list_items
+  has_many :list_items, dependent: :destroy
   has_many :my_lists, :through => :list_items
 
   validates :user_id, presence: true

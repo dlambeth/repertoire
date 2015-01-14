@@ -17,6 +17,7 @@ Router.map ->
     #@resource 'item', path: '/items/:id'
     @resource 'items', path: '/items', ->
       @route 'edit', path: '/items/:id/'
+      @route 'new'
   
   #@resource 'items', path: '/items'
 `export default Router`

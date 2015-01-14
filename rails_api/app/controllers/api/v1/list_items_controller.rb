@@ -18,6 +18,7 @@ class Api::V1::ListItemsController < ApplicationController
     listItem = ListItem.find(params[:id])
     list = listItem.my_list
     list.remove_item(listItem.item)
+    render json: {}, status: :no_content
   end
 
   private

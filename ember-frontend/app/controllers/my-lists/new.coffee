@@ -8,7 +8,7 @@ MyListsNewController = Ember.ObjectController.extend
       myList.save().then =>
         @transitionToRoute 'myList', myList
 
-
+    #Fixme: why is this here? Is it just for 'down the road?'
     addItemToList: ->
       list = @get('model')
       

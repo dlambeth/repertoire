@@ -8,3 +8,22 @@ html, body {
 body {
     padding-top:50px;
 }
+
+.deleteWithInRow
+{
+  float:right;
+}
+.song {
+  input[type=text], textarea{
+    border:none;
+    background:none;
+    width: 350px;
+
+    &:disabled {
+      outline:none;
+    }
+    &:enabled {
+      outline:auto;
+    }
+  }  
+}

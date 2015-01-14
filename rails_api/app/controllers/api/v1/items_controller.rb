@@ -10,11 +10,12 @@ class Api::V1::ItemsController < ApplicationController
 
   def create
     @item = current_user.items.build(item_params)
-    if @item.save
-      flash[:success] = "Item created!"
-      redirect_to root_url
+    if @item.save!
+      respond_to do |format|
+        format.json { render :json => @mylist }
+      end
     else
-      render 'static_pages/home'
+      #todo error handling
     end
   end
 
@@ -26,6 +27,10 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy!
+      render json: {}, status: :no_content
+    end
   end
 
   private
