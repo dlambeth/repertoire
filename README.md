@@ -11,6 +11,5 @@ On my laundry list of todo's
 * Ember.js tests
 * Rails tests
 * Nicer UI
-* Authentication bug
 * Support for creating users
 * Check for correct user in API calls
