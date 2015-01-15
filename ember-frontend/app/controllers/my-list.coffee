@@ -26,12 +26,12 @@ MyListController = Ember.ObjectController.extend
   actions:
     saveChanges: -> 
       @get('model').save()
-      return
 
     delete: ->
       @get('model').destroyRecord()
 
     deleteItem: (list_item) ->
+      list_item.destroyRecord()
       
 
 

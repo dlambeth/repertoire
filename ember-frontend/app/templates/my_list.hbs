@@ -14,7 +14,7 @@
    </td></tr>
     
         {{#each listItem in model.listItems}}
-          <tr><td>{{listItem.item.title}} <a href="#" class="deleteWithInRow" {{action "deleteItem" this}}><i class="fa fa-trash-o fa-fw"></i>Delete</a></td></tr>
+          <tr><td>{{listItem.item.title}} <a href="#" class="deleteWithInRow" {{action "deleteItem" listItem}}><i class="fa fa-trash-o fa-fw"></i>Delete</a></td></tr>
         {{/each}}
       </tbody>
   </table>
